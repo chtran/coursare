@@ -7,14 +7,13 @@ $(->
       type: "POST"
       url: "/videos/#{video_id}/quizzes"
       success: (data) ->
-        alert("wtf")
-        console.log(data)
-        $("#video").hide()
-        $("#quiz").show()
+        $("#ytvideo").hide()
+        $("#quiz").removeClass("hide").show()
         quiz = data[0]
-        $("#quiz #prompt").text(quiz.prompt)
+        console.log(quiz)
+        $("#prompt").text(quiz.quiz.prompt)
         for choice in quiz.choices
-          $("#choices").append(
+          $(".choices").append(
             "<button class='row-fluid btn each_choice' data-choice-id='#{choice.id}'>
               <div class='span2 choice_letter'>#{choice.choice_letter}</div>
               <div class='span8 choice_content'>#{choice.content}</div>
@@ -29,17 +28,15 @@ $(->
     video_title = $(this).attr("data-video-title")
 
 
-    showQuiz(video_id)
     window.onYouTubePlayerReady = ->
       ytplayer = $("#ytvideo").get(0)
       ytplayer.addEventListener("onStateChange", "ytplayerStateChange")
 
     window.ytplayerStateChange = (state) ->
-      console.log(state)
       if state==0
         showQuiz(video_id)
 
-    swfobject.embedSWF("http://www.youtube.com/v/4TSJhIZmL0A?enablejsapi=1&version=3", "video", 840, 472, "8", null, null, {allowScriptAccess: "always"}, {id: "ytvideo"})
+    swfobject.embedSWF("http://www.youtube.com/v/#{video_url}?enablejsapi=1&version=3", "video", 840, 472, "8", null, null, {allowScriptAccess: "always"}, {id: "ytvideo"})
 
     $("#video-modal .modal-header h3").text(video_title)
     $("#video-modal").modal("show")
