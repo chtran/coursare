@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20120817094111) do
     t.datetime "updated_at",    :null => false
     t.date     "start_date"
     t.integer  "length"
+    t.string   "image"
   end
 
   create_table "instructors", :force => true do |t|

@@ -1,0 +1,39 @@
+%div.courses-index-container
+  %div.container
+    %header.jumbotron.subhead 
+      %h1      
+        Courses list
+      %p.lead 
+        Find your favorite courses by subjects and instructors.
+    %hr
+  %div.courses-nav.subnav
+    %ul.nav.nav-pills
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle"=>"dropdown", :href => "#"}
+          Subjects
+          %b.caret
+        %ul.dropdown-menu
+          %li Sample subject
+
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle"=>"dropdown", :href => "#"}
+          Instructors
+          %b.caret
+        %ul.dropdown-menu
+          %li Sample Instructor
+      %li
+        %input{:type => "text", "placeholder" => "Search for courses"}
+        %button.btn Search
+  %div.courses-list
+    %table.table.table-bordered
+      %tbody
+        - @courses.each do |c|
+          %tr
+            %td
+              =image_tag c.image
+            %td
+              =c.title
+            %td
+              =time_tag c.start_date
+  
+

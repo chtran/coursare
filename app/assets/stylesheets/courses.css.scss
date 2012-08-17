@@ -1,6 +1,103 @@
 // Place all the styles related to the courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.courses-index-container .jumbotron{
+  position: relative;
+}
+
+.courses-index-container .subhead {
+  padding-bottom: 0;
+  margin-bottom: 9px;
+}
+
+.courses-index-container .jumbotron p{
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+
+.courses-index-container .jumbotron h1 {
+  margin-bottom: 9px;
+  font-size: 81px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.courses-index-container .subhead h1 {
+  font-size: 54px;
+}
+
+.courses-index-container{
+  padding-top: 20px;
+}
+
+.courses-index-container .courses-list{
+  width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.courses-index-container .courses-nav.subnav {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 42px;
+  padding-top: 5px;
+  padding-bottom:5px;
+  background-color: #EEE;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(top, whiteSmoke 0%, #EEE 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,whiteSmoke), color-stop(100%,#EEE));
+  background-image: -webkit-linear-gradient(top, whiteSmoke 0%,#EEE 100%);
+  background-image: -ms-linear-gradient(top, whiteSmoke 0%,#EEE 100%);
+  background-image: -o-linear-gradient(top, whiteSmoke 0%,#EEE 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#eeeeee',GradientType=0 );
+  background-image: linear-gradient(top, whiteSmoke 0%,#EEE 100%);
+  border: 1px solid #E5E5E5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.courses-index-container .courses-nav.subnav .divider-vertical{
+  width: 1px;
+  height: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+  overflow: hidden;
+  background-color: #CCC;
+  border-right: 1px solid #DDD;
+}
+
+.courses-nav .nav li.dropdown{
+  padding-top: 3px;
+  padding-left: 80px;
+  padding-right: 80px;
+  border-right: 1px solid #E5E5E5;
+  font-size: 20px;
+}
+.courses-nav .nav li.dropdown ul li{
+  font-size: 15px;
+}
+.courses-nav .nav li.dropdown ul{
+  left: none;
+}
+.courses-nav .nav li{
+  padding-top: 3px;
+  padding-left: 30px;
+  padding-right: 50px;
+}
+.courses-nav .nav li input{
+  margin-top: 5px;
+  height: 30px;
+}
+
+.courses-nav .nav button{
+  margin-bottom: 5px;
+}
+
 .modal#video-modal{
   width: 880px;
   top: 40%;
