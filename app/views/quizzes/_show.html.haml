@@ -1,0 +1,15 @@
+%div.row-fluid
+  %div.span6
+    %div.prompt
+      %p.lead#prompt
+        = @quiz.prompt
+  %div.span6
+    %div.choices
+      - @quiz.quiz_choices.each do |quiz_choice|
+        %button.row-fluid.btn.choice{"data-choice-id"=> quiz_choice.id}
+          %div.span2.choice_letter= quiz_choice.choice_letter
+          %div.span8.choice_content= quiz_choice.content
+    %div.control
+      %br
+      %button.btn.btn-primary#confirm{style: "display:none"} Confirm
+      %button.btn.btn-primary#next{style: "display:none"} Next

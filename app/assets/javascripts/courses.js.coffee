@@ -2,30 +2,47 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(->
-  showQuiz = (video_id)->
+  showQuiz = (quiz_id)->
+    if quiz_id
+      $.ajax(
+        type: "GET"
+        url: "/quizzes/#{quiz_id}"
+        success: (data) ->
+          $("#ytvideo").hide()
+          $("#quiz").html(data).show()
+          $(".choices").addClass("active")
+          $("#confirm").show()
+      )
+
+  showExplanation = (correct_id,chosen_id) ->
+    $(".choice").addClass("disabled").removeClass("btn-primary")
+    $(".choice[data-choice-id=#{chosen_id}]").addClass("btn-danger")
+    $(".choice[data-choice-id=#{correct_id}]").addClass("btn-success")
+
+  $(".active .choice").live("click",->
+    $(this).siblings().removeClass("btn-primary")
+    $(this).addClass("btn-primary")
+  )
+
+  $("#confirm").live("click",->
+    $("#choices").removeClass("active")
+    $("#confirm").hide()
+    quiz_choice_id = $(".choice.btn-primary").data("choiceId")
     $.ajax(
       type: "POST"
-      url: "/videos/#{video_id}/quizzes"
+      data:
+        quiz_choice_id: quiz_choice_id
+      url: "/quizzes/confirm"
       success: (data) ->
-        $("#ytvideo").hide()
-        $("#quiz").removeClass("hide").show()
-        quiz = data[0]
-        console.log(quiz)
-        $("#prompt").text(quiz.quiz.prompt)
-        for choice in quiz.choices
-          $(".choices").append(
-            "<button class='row-fluid btn each_choice' data-choice-id='#{choice.id}'>
-              <div class='span2 choice_letter'>#{choice.choice_letter}</div>
-              <div class='span8 choice_content'>#{choice.content}</div>
-            </button>"
-          )
-
+        showExplanation(data.correct_id,data.chosen_id)
+        $("#next").show()
     )
+  )
 
-  $(".video_link").click(->
-    video_id = $(this).attr("data-video-id")
-    video_url = $(this).attr("data-video-url")
-    video_title = $(this).attr("data-video-title")
+  $(".video-link").click(->
+    video_id = $(this).data("videoId")
+    video_url = $(this).data("videoUrl")
+    video_title = $(this).data("videoTitle")
 
 
     window.onYouTubePlayerReady = ->
