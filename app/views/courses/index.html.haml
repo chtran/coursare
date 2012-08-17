@@ -1,7 +1,7 @@
 %div.courses-index-container
   %div.container
     %header.jumbotron.subhead 
-      %h1      
+      %h1
         Courses list
       %p.lead 
         Find your favorite courses by subjects and instructors.
@@ -32,8 +32,9 @@
             %td
               =image_tag c.image
             %td
-              =c.title
+              =link_to c.title, c
             %td
               =time_tag c.start_date
+              %a.btn.btn-primary{href:"/courses/#{c.id}"} Go
   
 
