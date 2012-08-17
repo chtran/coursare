@@ -52,6 +52,7 @@ Coursare::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home_page#dashboard'
   resources :courses, only: [:index,:show]
+  resources :videos, only: [:show]
 
   # See how all your routes lay out with "rake routes"
 

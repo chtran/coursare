@@ -1,0 +1,23 @@
+%div.course-info.row-fluid
+  %div.span8
+    %h1
+      = @course.title
+      %small= @course.subject.title
+  %div.span4
+    %div
+      %strong= @course.instructor.name
+    %div
+      %small= @course.instructor.school
+%div.course-videos.row-fluid
+  %div.span2
+  %div.span8
+    %div.accordion#lessons-list
+      - @lessons.each do |lesson|
+        = render "lesson_item", lesson: lesson
+    %div.modal.hide#video
+      %div.modal-header
+        %button.close{"type" => "button", "data-dismiss" => "modal"} x
+        %h3
+      %div.modal-body
+      %div.modal-footer
+        %button.btn{"data-dismiss"=>"modal"} Cancel
