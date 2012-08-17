@@ -54,6 +54,7 @@ Coursare::Application.routes.draw do
   resources :courses, only: [:index,:show]
   resources :videos, only: [:show]
 
+  post "/videos/:id/quizzes", to: "videos#quizzes"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
