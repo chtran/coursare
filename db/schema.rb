@@ -11,7 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817064809) do
+ActiveRecord::Schema.define(:version => 20120817072352) do
+
+  create_table "course_subscriptions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "courses", :force => true do |t|
+    t.string   "title"
+    t.integer  "instructor_id"
+    t.integer  "subject_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.date     "start_date"
+    t.integer  "length"
+  end
+
+  create_table "instructors", :force => true do |t|
+    t.string   "name"
+    t.string   "school"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "lessons", :force => true do |t|
+    t.string   "title"
+    t.integer  "course_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "subjects", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.datetime "created_at",                             :null => false
@@ -30,5 +67,12 @@ ActiveRecord::Schema.define(:version => 20120817064809) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "videos", :force => true do |t|
+    t.string   "url"
+    t.integer  "lesson_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
