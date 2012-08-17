@@ -1,0 +1,60 @@
+%html
+  %head
+    %title Coursare
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type: "text/javascript"></script>
+    <![endif]-->
+
+    = include_gon
+    = stylesheet_link_tag "application",media: "all"
+    = javascript_include_tag "application"
+
+    = csrf_meta_tags
+    = yield(:head)
+
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+  %body{class: controller.controller_name}
+    %div.navbar.navbar-fixed-top
+      %div.navbar-inner.navbar-big
+        %div.row-fluid
+          %div.container
+            %div.span2
+              %a.btn.btn-navbar{"data-toggle" => "collapse", "data-target"=> ".nav-collapse"}
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              %a.mybrand{href: user_signed_in? ? "/dashboard":"/"}
+                Studium
+                %i.icon-home.icon-white
+            %div.nav-collapse.span10
+              %form.navbar-search.pull-left
+                = text_field_tag :user_name,"",{class: "search-friend search-query",placeholder: "Search",data: {autocomplete_source: search_friend_rooms_path}}
+                %i.icon-search.icon-white{style: "height: 10px;"}
+              %ul.nav.pull-right
+                - if user_signed_in?
+                  %li= link_to "Sign out",destroy_user_session_path, method: :delete
+                - else
+                  %li= link_to "Sign in",new_user_session_path
+
+    %div.container-fluid
+      %div.row-fluid.notice-alert
+        -# Notifications
+        - if notice
+          %div.alert.alert-success
+            %button.close{:"data-dismiss"=>"alert"} x
+            %p= notice
+        - if alert
+          %div.alert.alert-error
+            %button.close{:"data-dismiss"=>"alert"} x
+            %p= alert
+
+
+      %div.row-fluid
+        %div.mycontainer
+          = yield
+          %hr
+          %footer
+            %p Copyright by Coursare.vn
+
