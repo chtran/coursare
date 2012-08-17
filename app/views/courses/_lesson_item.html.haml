@@ -1,0 +1,8 @@
+%div.accordion-group
+  %div.accordion-heading
+    %div.accordion-toggle{"data-toggle" => "collapse", "data-target" => "#lesson_#{lesson.id}", "data-parent" => "#lessons_list"}
+      %h3= lesson.title
+  %div.accordion-body.collapse.in{id: "lesson_#{lesson.id}"}
+    %div.accordion-inner
+      - lesson.videos.each do |video|
+        = render "video_item", video: video
