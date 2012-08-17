@@ -33,8 +33,6 @@ $(->
       ytplayer.addEventListener("onStateChange", "ytplayerStateChange")
 
     window.ytplayerStateChange = (state) ->
-      console.log(state)
-      showQuiz(video_id)
       if state==0
         showQuiz(video_id)
 
