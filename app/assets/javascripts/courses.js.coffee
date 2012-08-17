@@ -35,14 +35,20 @@ $(->
       url: "/quizzes/confirm"
       success: (data) ->
         showExplanation(data.correct_id,data.chosen_id)
-        $("#next").show()
+        if window.quiz_stack.length>0
+          $("#next").show()
     )
+  )
+
+  $("#next").live("click", ->
+    showQuiz(window.quiz_stack.pop())
   )
 
   $(".video-link").click(->
     video_id = $(this).data("videoId")
     video_url = $(this).data("videoUrl")
     video_title = $(this).data("videoTitle")
+    window.quiz_stack = $(this).data("videoQuizzes")
 
 
     window.onYouTubePlayerReady = ->
@@ -50,8 +56,10 @@ $(->
       ytplayer.addEventListener("onStateChange", "ytplayerStateChange")
 
     window.ytplayerStateChange = (state) ->
+      console.log(window.quiz_stack)
+      console.log(state)
       if state==0
-        showQuiz(video_id)
+        showQuiz(window.quiz_stack.pop())
 
     swfobject.embedSWF("http://www.youtube.com/v/#{video_url}?enablejsapi=1&version=3", "video", 840, 472, "8", null, null, {allowScriptAccess: "always"}, {id: "ytvideo"})
 
