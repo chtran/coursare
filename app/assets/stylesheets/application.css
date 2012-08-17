@@ -11,3 +11,44 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  color: #333;
+}
+
+.navbar.navbar-fixed-top{
+  -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.35);
+  background-color: whiteSmoke;
+}
+
+.navbar .brand strong{
+  color: #005580;
+  font-size: 30px;
+}
+
+.navbar .brand i{
+  color: #005580;
+  font-size: 20px;
+}
+
+.header-link a{
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "sofiapro-medium",Arial,sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.header-link li:hover{
+  background-color: #DDD;
+  color: #888; 
+}
+
+.container-fluid{
+  padding-top: 10px;
+}
+
