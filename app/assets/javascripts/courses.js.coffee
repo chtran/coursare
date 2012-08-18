@@ -8,7 +8,7 @@ $(->
         type: "GET"
         url: "/quizzes/#{quiz_id}"
         success: (data) ->
-          $("#ytvideo").hide()
+          $("#video").hide()
           $("#quiz").html(data).show()
           $(".choices").addClass("active")
           $("#confirm").show()
@@ -52,19 +52,23 @@ $(->
 
 
     window.onYouTubePlayerReady = ->
-      ytplayer = $("#ytvideo").get(0)
+      ytplayer = $("#video").get(0)
       ytplayer.addEventListener("onStateChange", "ytplayerStateChange")
 
     window.ytplayerStateChange = (state) ->
-      console.log(window.quiz_stack)
-      console.log(state)
       if state==0
         showQuiz(window.quiz_stack.pop())
 
-    swfobject.embedSWF("http://www.youtube.com/v/#{video_url}?enablejsapi=1&version=3", "video", 840, 472, "8", null, null, {allowScriptAccess: "always"}, {id: "ytvideo"})
+    swfobject.embedSWF("http://www.youtube.com/v/#{video_url}?enablejsapi=1&version=3", "video", 840, 472, "8", null, null, {allowScriptAccess: "always"}, {id: "video"})
 
     $("#video-modal .modal-header h3").text(video_title)
     $("#video-modal").modal("show")
+  )
+
+  $("#video-modal").on("hidden", ->
+    $("#video").empty()
+    $("#quiz").empty()
+    $(this).find("h3").empty()
   )
 )
 

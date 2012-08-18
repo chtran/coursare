@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 thrun = Instructor.create! name: "Sebastian Thrun", school: "Stanford"
 cs = Subject.create! title: "Computer Science"
-ai = thrun.courses.create! title: "Introduction to Artificial Intelligence", start_date: Time.now, length: 90, subject_id: Subject.find_by_name("Computer Science").id, image: "https://s3.amazonaws.com/coursera/topics/comparch/small-icon.hover.png"
+ai = thrun.courses.create! title: "Introduction to Artificial Intelligence", start_date: Time.now, length: 90, subject_id: cs.id, image: "https://s3.amazonaws.com/coursera/topics/comparch/small-icon.hover.png"
 welcome = ai.lessons.create! title: "Welcome to AI"
 intro = welcome.videos.create! url: "BnIJ7Ba5Sr4", title: "Introduction"
 overview = welcome.videos.create! url: "Q7_GQq7cDyM", title: "Overview"
