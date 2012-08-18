@@ -6,7 +6,7 @@
       %p.lead 
         Find your favorite courses by subjects and instructors.
     %hr
-  %div.courses-nav.subnav
+  %div.courses-nav.subnav.spacing
     %ul.nav.nav-pills
       %li.dropdown
         %a.dropdown-toggle{"data-toggle"=>"dropdown", :href => "#"}
@@ -24,17 +24,18 @@
       %li
         %input{:type => "text", "placeholder" => "Search for courses"}
         %button.btn Search
-  %div.courses-list
+  %div.courses-list.spacing
     %table.table.table-bordered
       %tbody
         - @courses.each do |c|
           %tr
-            %td
+            %td.class-image
               =image_tag c.image
-            %td
-              =link_to c.title, c
+            %td.class-info
+              =link_to c.title, c, {:class=>"course-title"}
+              %strong.instructor-name= c.instructor.name
+              %div.instructor-school= c.instructor.school
             %td
               =time_tag c.start_date
-              %a.btn.btn-primary{href:"/courses/#{c.id}"} Go
   
 
