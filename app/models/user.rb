@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :oauth_token
   has_many :courses, through: :course_subscriptions
   def self.find_for_auth(auth, signed_in_resource=nil)
     user = User.where(email: auth.info.email).first
