@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817094711) do
+ActiveRecord::Schema.define(:version => 20120817162113) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "lesson_id"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(:version => 20120817094711) do
     t.date     "start_date"
     t.integer  "length"
     t.string   "image"
+  end
+
+  create_table "histories", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "quiz_choice_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "instructors", :force => true do |t|
@@ -104,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20120817094711) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "oauth_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

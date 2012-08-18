@@ -22,13 +22,11 @@
         %div.row-fluid
           %div.container
             %div.span3
-              %a.brand{href: user_signed_in? ? "/dashboard":"/"}
+              %a.brand{href: user_signed_in? ? "/courses":"/"}
                 %strong Coursare
             %div.nav-collapse.span9
               %ul.nav.pull-right.header-link
-                %li
-                  %a
-                    Courses
+                %li= link_to "Courses", courses_path
                 - if user_signed_in?
                   %li= link_to "Sign out",destroy_user_session_path, method: :delete
                 - else
