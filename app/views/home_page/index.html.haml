@@ -1,10 +1,10 @@
 %div.intro
   %div.row-fluid
     %div#home-welcome
-      %h1 Welcome to Coursare!    
+      %h1 Welcome to Coursare!
   %div.thumbnail#homepage-video
     %iframe{width:"700", height:"400", src:"http://www.youtube.com/embed/PojLL3E-zk0", frameborder:"0", "allowfullscreen"=>"true"}   
   %div#home-description
-    =link_to "Sign in with Facebook", "#", {class: "btn btn-primary btn-large", id: "facebook_login"}
-    =link_to "Sign in with Google", "#",  {class: "btn btn-primary btn-large"}         
+    =link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), {class: "btn btn-primary btn-large", id: "facebook_login"}
+    =link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2),  {class: "btn btn-primary btn-large"}
 

@@ -1,5 +1,7 @@
 Coursare::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  config.facebook_app_id = '306644502768034'
+  config.facebook_secret = '17482ae0c9931d50ba0a15bb9a44a896'
 
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that

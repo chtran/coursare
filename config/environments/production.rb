@@ -1,5 +1,7 @@
 Coursare::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  config.facebook_app_id = '475356139148775'
+  config.facebook_secret = '549b37dba9bd3b373908b9e579241249'
 
   # Code is not reloaded between requests
   config.cache_classes = true
