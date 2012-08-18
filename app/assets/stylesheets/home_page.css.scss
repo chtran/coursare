@@ -1,3 +1,57 @@
 // Place all the styles related to the home_page controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.homepage{
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.intro #homepage-video{
+  width: 700px;
+  height: 400px;
+}
+
+.intro #homepage-video{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro p{
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 27px;
+  color: inherit;
+}
+
+.intro h1 {
+  letter-spacing: -1px;
+  font-size: 35px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+#home-quote blockquote {
+  margin-left: 30px;
+}
+
+#home-welcome {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#home-quote{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+
+#home-description {
+  margin-top: 15px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+#home-description .btn {
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 11px 35px 13px;
+}

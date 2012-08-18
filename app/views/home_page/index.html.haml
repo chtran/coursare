@@ -1,23 +1,10 @@
 %div.intro
-  %div.myhero
-    %div.row-fluid
-      %div.span3
-      %div.span6
-        %div#home-welcome
-          %h1 Welcome to Studium!
-        %div#homepage-video
-          =link_to "", "http://youtu.be/PojLL3E-zk0"
-        %div#home-description
-          =link_to "Sign in with Facebook", "#", {class: "btn btn-primary btn-large", id: "facebook_login"}
-          =link_to "Sign in with Google", "#",  {class: "btn btn-primary btn-large"}
-        %div#facepile.text-center
-      %div.span2
-%div.row-fluid#home-quote
-  %div.span6
-    %blockquote
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies mi nec turpis viverra eget cursus erat posuere.
-      %small Bill Gates
-  %div.span6
-    %blockquote
-      %p Donec nec lectus eu lorem dictum pulvinar eget non lorem. Nam aliquam magna eu libero convallis vitae vulputate felis malesuada. Pellentesque porta sem non diam.
-      %small Mark Zuckerberg
+  %div.row-fluid
+    %div#home-welcome
+      %h1 Welcome to Coursare!    
+  %div.thumbnail#homepage-video
+    %iframe{width:"700", height:"400", src:"http://www.youtube.com/embed/PojLL3E-zk0", frameborder:"0", "allowfullscreen"=>"true"}   
+  %div#home-description
+    =link_to "Sign in with Facebook", "#", {class: "btn btn-primary btn-large", id: "facebook_login"}
+    =link_to "Sign in with Google", "#",  {class: "btn btn-primary btn-large"}         
+
