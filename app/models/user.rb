@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :oauth_token
+  has_many :course_subscriptions
   has_many :courses, through: :course_subscriptions
   has_many :attempts
   def self.find_for_auth(auth, signed_in_resource=nil)

@@ -64,6 +64,8 @@ Coursare::Application.routes.draw do
   get "/assignments/:course_id", to: "assignments#index"
   get "/assignments/attempt/:id", to: "assignments#attempt"
   post "/assignments/submit", to: "assignments#submit"
+  post "/subscribe", to: "courses#subscribe"
+  
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
