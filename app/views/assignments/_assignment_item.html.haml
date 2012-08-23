@@ -1,0 +1,12 @@
+%div.accordion-group
+  %div.accordion-heading
+    %div.accordion-toggle{"data-toggle" => "collapse", "data-target" => "#assignment_#{assignment.id}", "data-parent" => "#assignment_list"}
+      %h3= assignment.title
+  %div.accordion-body.collapse.in{id: "assignment_#{assignment.id}"}
+    %div.accordion-inner
+      %table.table
+        %tbody
+          %tr
+            %td Due date
+            %td= assignment.due_date
+      %a.btn.btn-primary{href: "/assignments/attempt/#{assignment.id}"} Attempt

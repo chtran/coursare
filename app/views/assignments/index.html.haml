@@ -1,0 +1,6 @@
+%div.assignments.row-fluid
+  %div.span2
+  %div.span8
+    %div.accordion#assignment-list
+      - @assignments.each do |assignment|
+        = render "assignment_item", assignment: assignment if assignment.is_open?

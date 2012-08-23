@@ -1,0 +1,13 @@
+%div.row-fluid
+  %div.span2
+  %div.span8
+    %div.question-list
+      - @assignment.questions.each do |question|
+        %div.question.row-fluid
+          %div.prompt.span6
+            %p.lead= question.prompt
+          %div.choices.span6
+            - question.choices.each do |choice|
+              %button.row-fluid.btn.choice{"data-choice-id"=> choice.id}
+                %div.span2.choice_letter= choice.choice_letter
+                %div.span8.choice_content= choice.content
