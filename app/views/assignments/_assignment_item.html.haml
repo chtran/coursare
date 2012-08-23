@@ -9,4 +9,7 @@
           %tr
             %td Due date
             %td= assignment.due_date
+          %tr
+            %td Attempts
+            %td= current_user.attempt_count(assignment.id)
       %a.btn.btn-primary{href: "/assignments/attempt/#{assignment.id}"} Attempt

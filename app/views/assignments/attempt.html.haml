@@ -3,11 +3,13 @@
   %div.span8
     %div.question-list
       - @assignment.questions.each do |question|
-        %div.question.row-fluid
+        %div.question.row-fluid{id: "question_#{question.id}", "data-question-id" => question.id}
           %div.prompt.span6
             %p.lead= question.prompt
           %div.choices.span6
             - question.choices.each do |choice|
-              %button.row-fluid.btn.choice{"data-choice-id"=> choice.id}
+              %button.row-fluid.btn.choice{id: "choice_#{choice.id}", "data-choice-id"=> choice.id}
                 %div.span2.choice_letter= choice.choice_letter
                 %div.span8.choice_content= choice.content
+    %div.controls
+      %button.btn.btn-primary#submit Submit

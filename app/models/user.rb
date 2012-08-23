@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :oauth_token
   has_many :courses, through: :course_subscriptions
+  has_many :attempts
   def self.find_for_auth(auth, signed_in_resource=nil)
     user = User.where(email: auth.info.email).first
     if !user
@@ -39,5 +40,10 @@ class User < ActiveRecord::Base
 
   def self.find_for_google_oauth2(auth, signed_in_resource=nil)
     User.find_for_auth(auth, signed_in_resource)
+  end
+
+
+  def attempt_count(assignment_id)
+    return self.attempts.where(assignment_id: assignment_id).count
   end
 end
