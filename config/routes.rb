@@ -66,6 +66,7 @@ Coursare::Application.routes.draw do
   post "/assignments/submit", to: "assignments#submit"
   post "/subscribe", to: "courses#subscribe"
   
+  resources :messages
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

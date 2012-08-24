@@ -26,12 +26,33 @@
                 %strong Coursare
             %div.nav-collapse.span9
               %ul.nav.pull-right.header-link
+                %li
+                  %a.send-message{href: "#"} Send Message
+                  :javascript
+                    $(".send-message").click(function(){
+                      $(".message-modal").modal();
+                      });
                 %li= link_to "Courses", courses_path
                 - if user_signed_in?
                   %li= link_to "Sign out",destroy_user_session_path, method: :delete
                 - else
                   %li= link_to "Sign in",new_user_session_path
-    
+    %div.modal.hide.fade.in.message-modal
+      %div.modal-header
+        Send a message
+      %div.modal-body
+        - @message = Message.new
+        = form_for (@message) do |f|
+          = f.label :receiver_id
+          = f.text_field :receiver_id
+
+          = f.label :sender_id
+          = f.text_field :sender_id
+
+          = f.label :content
+          = f.text_area :content, rows: 5
+          %div.modal-footer
+            = f.submit "class"=>"btn btn-primary"
     %div.container-fluid
       %div.row-fluid.notice-alert
         -# Notifications
